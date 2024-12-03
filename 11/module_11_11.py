@@ -42,3 +42,5 @@ ax.set_title('Распределение яблок и апельсинов')
 ax.legend(loc='upper left', title='Фрукты')
 
 plt.show()
+
+#
