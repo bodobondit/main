@@ -70,7 +70,7 @@ class TournamentTest(unittest.TestCase):
         self.assertTrue(max(all_results), self.runner2)
 
     def test_result3(self):
-        tur = Tournament(90, self.runner1, self.runner2, self.runner3)
+        tur = Tournament(90, self.runner3, self.runner2, self.runner1)
         all_results = tur.start()
         self.all_results.append(all_results)
         self.assertTrue(max(all_results), self.runner3)
@@ -81,6 +81,10 @@ class TournamentTest(unittest.TestCase):
         for f in finishers.values():
             self.assertIsInstance(f, str)
 
+    def test_distance_speed(self):
+        tur = Tournament(90, self.runner3, self.runner2, self.runner1)
+        for p in tur.participants:
+            self.assertGreaterEqual(tur.full_distance,p.speed)
 
 if __name__ == '__main__':
     unittest.main()
