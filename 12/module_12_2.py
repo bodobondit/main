@@ -43,6 +43,8 @@ class Tournament:
 
 
 class TournamentTest(unittest.TestCase):
+    is_frozen = True
+
     @classmethod
     def setUpClass(self):
         self.all_results = []
@@ -75,6 +77,7 @@ class TournamentTest(unittest.TestCase):
         self.all_results.append(all_results)
         self.assertTrue(max(all_results), self.runner3)
 
+    @unittest.skipIf(is_frozen, 'Тесты в этом кейсе заморожены')
     def test_finishers(self):
         tur = Tournament(90, self.runner1, self.runner3)
         finishers = tur.start()
@@ -84,7 +87,8 @@ class TournamentTest(unittest.TestCase):
     def test_distance_speed(self):
         tur = Tournament(90, self.runner3, self.runner2, self.runner1)
         for p in tur.participants:
-            self.assertGreaterEqual(tur.full_distance,p.speed)
+            self.assertGreaterEqual(tur.full_distance, p.speed)
+
 
 if __name__ == '__main__':
     unittest.main()
