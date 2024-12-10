@@ -1,5 +1,6 @@
 import unittest
 import logging
+from test_run import *
 
 
 class Runner:
@@ -52,43 +53,7 @@ class Tournament:
         return finishers
 
 
-class RunnerTest(unittest.TestCase):
-
-    def test_walk(self):
-        try:
-            run1 = Runner('Test1', -2)
-            for i in range(10):
-                run1.walk()
-            self.assertEqual(run1.distance, 50)
-            logging.info('"est_walk" выполнен успешно')
-        except:
-            logging.warning('Неверная скорость для Runner', exc_info=True)
-
-    def test_run(self):
-        try:
-            run2 = Runner(3, 4)
-            for i in range(10):
-                run2.run()
-            self.assertEqual(run2.distance, 100)
-            logging.info('"test_run" выполнен успешно')
-        except:
-            logging.warning('Неверный тип данных для объекта Runner', exc_info=True)
-
-    def test_challenge(self):
-        run1 = Runner('Test1')
-        run2 = Runner('Test2')
-        for i in range(10):
-            run1.walk()
-            run2.run()
-        self.assertNotEqual(run1.distance, run2.distance)
-
-
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO, filemode='w', filename='runner_tests.log', encoding='UTF-8',
                         format='%(asctime)s | %(levelname)s | %(message)s')
-    logging.debug("A DEBUG Message")
-    logging.info("An INFO")
-    logging.warning("A WARNING")
-    logging.error("An ERROR")
-    logging.critical("A message of CRITICAL severity")
-    # unittest.main()
+    unittest.main()
