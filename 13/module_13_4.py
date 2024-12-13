@@ -40,7 +40,7 @@ async def send_calories(message: Message,state: FSMContext):
     await state.update_data(weight=message.text)
     data = await state.get_data()
     # для мужчин: 10 х вес (кг) + 6,25 x рост (см) – 5 х возраст (г) + 5;
-    calories = 10 * int(data['weight']) + 6,25 * int(data['growth']) - 5 * int(data['age'])
+    calories = 10 * int(data['weight']) + 6.25 * int(data['growth']) - 5 * int(data['age'])
     await message.answer(f'Ваша норма калорий: {calories}')
     await state.clear()
 
