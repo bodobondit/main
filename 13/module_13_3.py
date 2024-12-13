@@ -6,7 +6,7 @@ from aiogram.types import Message
 import asyncio
 from aiogram.fsm.storage.memory import MemoryStorage
 
-api = '7650439552:AAEKdNLhGvfZZoNY3ho_G4Nj3sp4XkLapEI'
+api = ''
 bot = Bot(token=api)
 dp = Dispatcher(storage=MemoryStorage())
 start_router = Router()
