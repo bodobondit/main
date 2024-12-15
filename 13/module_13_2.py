@@ -19,7 +19,7 @@ async def cmd_start_3(message: Message):
 
 
 async def main():
-    api = '7650439552:AAEKdNLhGvfZZoNY3ho_G4Nj3sp4XkLapEI'
+    api = ''
     bot = Bot(token=api)
     dp = Dispatcher(storage=MemoryStorage())
     dp.include_router(start_router)
